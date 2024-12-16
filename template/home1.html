@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+{% load static %}
+  <style>
+       .centered {
+ position: absolute;
+ top: 40%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ }
+.card{
+    margin-top:90px;
+    margin-left:30px;
+    width:250px;
+    height:500px;
+    border:1px solid black;
+
+}
+       ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        margin: 0 10px;
+    }
+
+    button {
+        padding: 5px 10px;
+    }
+
+    ion-icon {
+        vertical-align: middle;
+    }
+       .circle-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+
+ </style>
+
+<body style = "background-color:LightGray;">
+
+<nav class="navbar navbar-expand-sm navbar-light fixed-top" style="background-color: LightGrey;">
+
+         <div>
+        <img src="{{ obj.image.url }}" alt="Profile Picture" class="circle-image" >
+
+    <div>
+        <h6> {{ obj.email }}</h6>
+
+    </div> <span style="color:black;font-size:30px;font-weight:bold">BOOKSTALL</span></div>
+
+
+
+
+
+
+
+
+        <div class="container-fluid">
+            <p class="text-end"></p>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+        <li class="nav-item">
+
+             <a style="font-size:15px;color:black;font-family:bold" class="nav-link"href="#"><b>HOME</b></a>
+
+      <li class="nav-item">
+        <a style="font-size:15px;color:black;font-family:bold"class="nav-link" href="#"><b>Books</b></a>
+      </li>
+      <li class="nav-item">
+        <a style="font-size:15px;color:black;font-family:bold"class="nav-link" href="#"><b>English</b></a>
+
+      </li>
+      <li class="nav-item">
+        <a style="font-size:15px;color:black;font-family:bold"class="nav-link" href="#"><b>Malayalam</b></a>
+
+      </li>
+      <li class="nav-item">
+        <a style="font-size:15px;color:black;font-family:bold" class="nav-link" href="#"><b>Hindi</b></a>
+      </li>
+
+
+            <input type="text" placeholder="search book..">
+              <ul class="nav navbar-nav navbar-right">
+      <li><a href="/content{{x.id}}"> <button>+</button></a></li>
+      <li><a href="/login{{x.id}}"><button>logout</button></a></li>
+                  <li>
+        <ion-icon name="cart-outline" style="font-size:30px" aria-label="Shopping Cart"></ion-icon>
+   </li>
+   <li>
+       <ion-icon name="ellipsis-vertical-outline" style="font-size:20px" aria-label="More Options"></ion-icon>
+   </li>
+    </ul>
+  </div>
+</nav>
+
+
+  </div>
+</nav>
+
+
+
+
+
+
+ <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+  </div>
+
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'book buy.jpg' %}" width="1600" height="600" >
+      <div class="carousel-caption">
+            <div  style="font-size:150%;color:black;top:20px">Welcome {{ obj.email }}</div>
+        <div  style="font-size:190%;color:black;font-weight:bold;top:10px">"Endless Stories, One Click Away - Shop Books Now!"</div>
+      </div>
+    </div>
+    <div class="carousel-item">
+       <img src="{% static 'new.jpg' %}" width="1600" height="600" >
+      <div class="carousel-caption">
+          <div  style="font-size:150%;color:white;top:20px">Welcome {{ obj.email }}</div>
+          <div  style="font-size:190%;color:white;font-weight:bold;top:10px"> Why buy a book? Because life is too short to live just one story.</div>
+      </div>
+    </div>
+    <div class="carousel-item">
+    <img src="{% static 'new6.jpg' %}" width="1600" height="600" >
+      <div class="carousel-caption">
+          <div  style="font-size:150%;color:black;top:20px">Welcome {{ obj.email }}</div>
+          <div  style="font-size:190%;color:black;font-weight:bold;top:10px">"Don’t just read stories—live them. Buy a book, and step into a new world."</div>
+      </div>
+    </div>
+  </div>
+
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+
+     <div class="row">
+     {% for x in data %}
+    &nbsp;&nbsp;&nbsp;&nbsp; <div class="card">
+         <img class="card-img-top" src="{{x.image.url}}" alt="Card image" style="width:230px;height:300px;">
+  <div class="card-body">
+    <h4 class="card-title">{{x.book_name}}</h4>
+    <p class="card-text">{{x.price}}</p>
+      <p class="card-text">{{x.author}}</p>
+    <a href="view/{{x.id}}"><button>view more</button></a>
+
+  </div></div>
+
+
+    {% endfor %}
+</div>
+     </body>
+</html>
+
